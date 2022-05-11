@@ -3,6 +3,16 @@ import axios from "axios";
 import { useState } from "react";
 import { Button, Modal, Box, Stack, TextField, Alert } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      mobile: 780,
+    },
+  },
+});
 
 const style = {
   position: "absolute",
@@ -15,6 +25,10 @@ const style = {
   border: "3px solid #2b4cb8",
   boxShadow: 3,
   p: 4,
+  [theme.breakpoints.down('mobile')]: {
+    width: 300,
+    height: 300
+  }
 };
 
 export default function Signup() {
@@ -91,20 +105,36 @@ export default function Signup() {
       });
   }
 
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        mobile: 780,
+      },
+    },
+  });
+
   return (
     <>
       <div className="UserButtons">
         {loggedIn ? (
           <Stack direction="row" spacing={2}>
             <h4>{`Hello, ${username}!`}</h4>
-            <Button variant="outlined" onClick={() => setLoggedIn(false)}>
+            <Button 
+            variant="outlined" 
+            onClick={() => setLoggedIn(false)}
+            sx={{
+              [theme.breakpoints.down('mobile')]: {
+               lineHeight: 1.25
+              }
+            }}
+            >
               Log Out
             </Button>
           </Stack>
         ) : (
           <section id='login-group'>
             
-            <Stack direction="row" spacing={3}>
+            <Stack direction="row" spacing={1}>
             <div>
               {errorAlert && (
                 <Alert
@@ -120,8 +150,16 @@ export default function Signup() {
                 variant="contained"
                 color="primary"
                 onClick={handleOpenSignup}
+                sx={{
+                  [theme.breakpoints.down('mobile')]: {
+                   lineHeight: 1.25,
+                   padding: '5px 10px',
+                   fontSize: '10px',
+                   marginLeft: '15px'
+                  }
+                }}
               >
-                Sign Up
+                Sign-Up
               </Button>
               <Modal
                 aria-labelledby="simple-modal-title"
@@ -173,8 +211,19 @@ export default function Signup() {
                   </Typography>
                 </Box>
               </Modal>
-              <Button variant="outlined" onClick={handleOpenLogin}>
-                Log in
+              <Button 
+              variant="outlined" 
+              onClick={handleOpenLogin}
+              sx={{
+                [theme.breakpoints.down('mobile')]: {
+                 lineHeight: 1.25,
+                 padding: '0 15px',
+                 fontSize: '10px',
+                 height: '45px',
+                }
+              }}
+              >
+                Login
               </Button>
               <Modal
                 aria-labelledby="simple-modal-title"

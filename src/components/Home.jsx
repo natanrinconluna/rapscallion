@@ -11,6 +11,7 @@ import Alert from "@mui/material/Alert";
 import env from "react-dotenv";
 
 const Home = () => {
+  
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("");
   const [results, setResults] = useState([]);
@@ -18,19 +19,30 @@ const Home = () => {
   const [resultCount, setResultCount] = useState(1);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.getgeoapi.com/v2/ip/check?api_key=${process.env.REACT_APP_GEO_API}`
-      )
-      .then(function (response) {
-        setUserLocation(
-          `${response.data.city.name}, ${response.data.area.name}`
-        );
-      });
+    let Lat;
+    let Long;
+
+    navigator.geolocation.getCurrentPosition(function (position) {
+      Lat = position.coords.latitude;
+      Long = position.coords.longitude;
+      console.log("Latitude is :", Lat);
+      console.log("Longitude is :", Long);
+
+      axios
+        .get(
+          `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${Lat}&lon=${Long}`
+        )
+        .then(function (response) {
+          console.log(response)
+          console.log(response.data.address.city ? response.data.address.city : response.data.address.town, response.data.address.state)
+          setUserLocation(
+            `${response.data.address.city ? response.data.address.city : response.data.address.town}, ${response.data.address.state}`
+          );
+        });
+    });
   }, []);
 
   function getJobs() {
-    console.log(process.env.TEST)
     axios
       .get(
         `https://data.usajobs.gov/api/search?Keyword=${search}&LocationName=${
@@ -71,7 +83,9 @@ const Home = () => {
   const theme = createTheme({
     breakpoints: {
       values: {
-        md: 1200,
+        mobile: 780,
+        tablet: 900,
+        desktop: 1200,
       },
     },
   });
@@ -91,21 +105,34 @@ const Home = () => {
               getJobs();
             }}
           >
+            {/* Search Jobs Bar */}
             <TextField
               InputProps={{
                 sx: { borderRadius: "8px 0px 0px 8px" },
               }}
               id="outlined-basic companies"
-              placeholder="Search jobs, keywords or companies"
+              placeholder="Search jobs or keywords"
               variant="outlined"
               sx={{
                 backgroundColor: "white",
                 borderRadius: "8px 0px 0px 8px",
-                
-                [theme.breakpoints.down('md')]: {
-                  width: '200px'
+                [theme.breakpoints.down('mobile')]: {
+                  fontSize: '30px',
+                  width: '80px',
+                  
                 },
-                [theme.breakpoints.up('md')]: {
+                [theme.breakpoints.between('mobile', 'tablet')]: {
+                  fontSize: '30px',
+                  width: '100px',
+                  
+                },
+                [theme.breakpoints.between('tablet', 'desktop')]: {
+                  fontSize: '30px',
+                  width: '200px',
+                  
+                },
+                [theme.breakpoints.up('desktop')]: {
+                  fontSize: '30px',
                   width: '400px'
                 }
 
@@ -114,6 +141,7 @@ const Home = () => {
                 setSearch(e.target.value);
               }}
             />
+            {/* Search Location Bar */}
             <TextField
               InputProps={{
                 sx: { borderRadius: "0px 0px 0px 0px" },
@@ -125,10 +153,23 @@ const Home = () => {
               sx={{
                 backgroundColor: "white",
                 borderRadius: "0px 0px 0px 0px",
-                [theme.breakpoints.down('md')]: {
-                  width: '200px'
+                [theme.breakpoints.down('mobile')]: {
+                  fontSize: '30px',
+                  width: '80px',
+                  
                 },
-                [theme.breakpoints.up('md')]: {
+                [theme.breakpoints.between('mobile', 'tablet')]: {
+                  fontSize: '30px',
+                  width: '100px',
+                  
+                },
+                [theme.breakpoints.between('tablet', 'desktop')]: {
+                  fontSize: '30px',
+                  width: '200px',
+                  
+                },
+                [theme.breakpoints.up('desktop')]: {
+                  fontSize: '30px',
                   width: '400px'
                 }
               }}
@@ -146,6 +187,27 @@ const Home = () => {
                 variant="contained"
                 color="success"
                 type="submit"
+                sx={{
+                  [theme.breakpoints.down('mobile')]: {
+                    fontSize: '14px',
+                    width: '80px',
+                    svg: {
+                      display: 'none'
+                    }
+                    
+                  },
+                  [theme.breakpoints.between('mobile', 'tablet')]: {
+                   
+                    
+                  },
+                  [theme.breakpoints.between('tablet', 'desktop')]: {
+                    
+                    
+                  },
+                  [theme.breakpoints.up('desktop')]: {
+                    
+                  }
+                }}
               >
                 Search
               </Button>
@@ -157,7 +219,7 @@ const Home = () => {
             sx={{ margin: "0 20px" }}
             id="no-result"
             severity="error"
-          >{`0 results for ${search} in ${location}`}</Alert>
+          >{`0 results for ${search} in ${location ? location : userLocation}`}</Alert>
         )}
         {results[0] ? (
           <JobWindow>
@@ -181,7 +243,28 @@ const Home = () => {
                   sx={{
                     backgroundColor: "rgba(128, 128, 128, 0.4)",
                     color: "rgba(255, 255, 255, 1)",
-                    whiteSpace: "nowrap",
+                    
+                    [theme.breakpoints.down('mobile')]: {
+                      minHeight: '29.5px',
+                      lineHeight: '1.25',                      
+                      whiteSpace: "wrap",
+                      width: '120px',
+                      fontSize: '10px',
+                      svg: {
+                        display: 'none'
+                      }
+                    },
+                    [theme.breakpoints.between('mobile', 'tablet')]: {
+                      whiteSpace: "nowrap",
+                      width: '120px',
+                      fontSize: '10px',
+                      svg: {
+                        display: 'none'
+                      }
+                    },
+                    [theme.breakpoints.up('tablet')]: {
+                      whiteSpace: "nowrap"
+                    }
                   }}
                 >
                   Police Officer
@@ -197,6 +280,26 @@ const Home = () => {
                     backgroundColor: "rgba(128, 128, 128, 0.4)",
                     color: "rgba(255, 255, 255, 1)",
                     whiteSpace: "nowrap",
+                    [theme.breakpoints.down('mobile')]: {
+                      minHeight: '29.5px',
+                      lineHeight: '1.25',                      
+                      whiteSpace: "wrap",
+                      width: '120px',
+                      fontSize: '10px',
+                      svg: {
+                        display: 'none'
+                      }
+                    },
+                    [theme.breakpoints.between('mobile','tablet')]: {
+                      width: '120px',
+                      fontSize: '10px',
+                      svg: {
+                        display: 'none'
+                      }
+                    },
+                    [theme.breakpoints.up('tablet')]: {
+                      
+                    }
                   }}
                 >
                   Retail
@@ -211,7 +314,31 @@ const Home = () => {
                   sx={{
                     backgroundColor: "rgba(128, 128, 128, 0.4)",
                     color: "rgba(255, 255, 255, 1)",
-                    whiteSpace: "nowrap",
+                    whiteSpace: "wrap",
+                    [theme.breakpoints.down('mobile')]: {
+                      maxHeight: '29.5px',
+                      lineHeight: '1.25',                      
+                      whiteSpace: "wrap",
+                      width: '120px',
+                      fontSize: '10px',
+                      svg: {
+                        display: 'none'
+                      }
+                    },
+                    [theme.breakpoints.between('mobile', 'tablet')]: {
+                      maxHeight: '29.5px',
+                      width: '120px',
+                      fontSize: '10px',
+                      overflowWrap: 'break-word',
+                      whiteSpace: 'wrap',
+                      lineHeight: '1.25',
+                      svg: {
+                        display: 'none'
+                      }
+                    },
+                    [theme.breakpoints.up('tablet')]: {
+                      whiteSpace: "nowrap"
+                    }
                   }}
                 >
                   Software Development
@@ -227,6 +354,26 @@ const Home = () => {
                     backgroundColor: "rgba(128, 128, 128, 0.4)",
                     color: "rgba(255, 255, 255, 1)",
                     whiteSpace: "nowrap",
+                    [theme.breakpoints.down('mobile')]: {
+                      minHeight: '29.5px',
+                      lineHeight: '1.25',                      
+                      whiteSpace: "wrap",
+                      width: '120px',
+                      fontSize: '10px',
+                      svg: {
+                        display: 'none'
+                      }
+                    },
+                    [theme.breakpoints.between('mobile','tablet')]: {
+                      width: '120px',
+                      fontSize: '10px',
+                      svg: {
+                        display: 'none'
+                      }
+                    },
+                    [theme.breakpoints.up('tablet')]: {
+                      
+                    }
                   }}
                 >
                   Education
@@ -242,6 +389,26 @@ const Home = () => {
                     backgroundColor: "rgba(128, 128, 128, 0.4)",
                     color: "rgba(255, 255, 255, 1)",
                     whiteSpace: "nowrap",
+                    [theme.breakpoints.down('mobile')]: {
+                      minHeight: '29.5px',
+                      lineHeight: '1.25',                      
+                      whiteSpace: "wrap",
+                      width: '120px',
+                      fontSize: '10px',
+                      svg: {
+                        display: 'none'
+                      }
+                    },
+                    [theme.breakpoints.between('mobile','tablet')]: {
+                      width: '120px',
+                      fontSize: '10px',
+                      svg: {
+                        display: 'none'
+                      }
+                    },
+                    [theme.breakpoints.up('tablet')]: {
+                      
+                    }
                   }}
                 >
                   Dentist
@@ -263,6 +430,13 @@ const PopularSearch = styled.div`
   align-items: center;
   Button {
     margin: 0 6px;
+  }
+  @media (max-width: 780px) {
+    max-width: 400px;
+    flex-direction: column;
+    Button {
+      margin: 6px 0;
+    }
   }
 `;
 
@@ -295,6 +469,12 @@ const Carousel = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
   width: 1450px;
+  @media (max-width: 950px) {
+    width: 750px;
+  }
+  @media (max-width: 600px) {
+    width: 350px;
+  }
 `;
 
 const JobWindow = styled.div`

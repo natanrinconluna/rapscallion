@@ -123,7 +123,7 @@
     
     main {
         width: 955px;
-        padding: 35px;
+        padding: 35px 0;
     }
     
     .compat-container main h1 {
@@ -279,9 +279,52 @@
             width: 400px;
         }
         main {
-            width: 800px;
+            width: 730px;
         }
         .left-links a {
             display: none;
+        }
+        #ForEmployers {
+            display: none;
+        }
+    }
+    
+    @media screen and (max-width: 780px) {
+        #job-qoute {
+            width: 250px;
+            margin-left: 0;
+        }
+        #jobImg {
+            width: 300px;
+            margin-bottom: 15px;
+        }
+        main {
+            width: 380px;
+            text-align: center;
+        }
+        .left-links a {
+            display: none;
+        }
+        #ForEmployers {
+            display: none;
+        }
+        #header {
+            font-size: 25px;
+        }
+        .logo-container {
+            margin-right: 8px;
+        }
+        .footer-col {
+            min-height: 35.2px;
+            font-size: 15px;
+        }
+        .footer-links {
+            font-size: 10px;
+            margin: 2px 0;
+            padding: 5px 0;
+            line-height: 1.25;
+        }
+        #footer-inspire {
+            margin-top: 10px;
         }
     }
