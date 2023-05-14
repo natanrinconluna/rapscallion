@@ -88,7 +88,7 @@ function Footer() {
               </a>
             </h5>
             <h5 className="footer-links">
-              Elijah Palmer:{" "}
+              Dev: Elijah Palmer:{" "}
               <a
                 className="footer-links"
                 target="_blank"
@@ -387,7 +387,7 @@ const Content = styled.div`
 `;
 
 // CREATED BY: ANJALI THING, NATAN RINCON LUNA, ELIJAH PALMER, TREVOR MULVANY
-// TESTED BY: NANCY NUNEZ 
+// TESTED BY: NANCY NUNEZ
 // https://www.linkedin.com/in/anjali-thing/
 // https://www.linkedin.com/in/natan-rincon-luna/
 // https://www.linkedin.com/in/elijah-palmer/
