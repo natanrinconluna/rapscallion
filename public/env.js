@@ -24,7 +24,7 @@ window.env = {
   "npm_config_userconfig": "/Users/natan_1/.npmrc",
   "npm_config_init_module": "/Users/natan_1/.npm-init.js",
   "__CFBundleIdentifier": "com.microsoft.VSCode",
-  "npm_command": "run-script",
+  "npm_command": "start",
   "PWD": "/Users/natan_1/Desktop/Raps/Pas2/rapscallion",
   "npm_lifecycle_event": "start",
   "EDITOR": "vi",
