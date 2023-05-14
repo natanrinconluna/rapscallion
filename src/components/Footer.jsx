@@ -68,7 +68,7 @@ function Footer() {
           <Content>
             <h3 className="footer-col">Created By</h3>
             <h5 className="footer-links">
-              Dev: Anjali Thing:{" "}
+              Dev: Angelina Hinijosa:{" "}
               <a
                 className="footer-links"
                 target="_blank"
@@ -78,7 +78,7 @@ function Footer() {
               </a>
             </h5>
             <h5 className="footer-links">
-              Dev: Trevor Mulvany:{" "}
+              Dev: Jake Davis:{" "}
               <a
                 className="footer-links"
                 target="_blank"
@@ -88,7 +88,7 @@ function Footer() {
               </a>
             </h5>
             <h5 className="footer-links">
-              Dev: Elijah Palmer:{" "}
+              Dev: Eli Martin:{" "}
               <a
                 className="footer-links"
                 target="_blank"
@@ -98,7 +98,7 @@ function Footer() {
               </a>
             </h5>
             <h5 className="footer-links">
-              Dev: Natan Rincon Luna:{" "}
+              Dev: Nathan Torres:{" "}
               <a
                 className="footer-links"
                 target="_blank"
