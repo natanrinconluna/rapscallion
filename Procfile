@@ -1,1 +1,1 @@
-web:  npm install --force && npm run build && npm start
+web: d ./backend && npm install --force && npm start && cd ../ && npm install --force && npm run build   
