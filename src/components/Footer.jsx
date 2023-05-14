@@ -68,7 +68,7 @@ function Footer() {
           <Content>
             <h3 className="footer-col">Created By</h3>
             <h5 className="footer-links">
-              Dev: Angelina Hinijosa:{" "}
+              Dev: Angelina Hinojosa:{" "}
               <a
                 className="footer-links"
                 target="_blank"
@@ -102,7 +102,7 @@ function Footer() {
               <a
                 className="footer-links"
                 target="_blank"
-                href="https://www.linkedin.com/in/natan-rincon-luna/"
+                href="https://www.linkedin.com/"
               >
                 Linked In
               </a>
@@ -170,25 +170,25 @@ function Footer() {
           <Content>
             <h3 className="footer-col">Find Out More</h3>
             <h5 className="footer-links">
-              Anjali Thing:{" "}
+              Angelina Hinojosa:{" "}
               <a target="_blank" href="https://github.com">
                 GitHub
               </a>
             </h5>
             <h5 className="footer-links">
-              Trevor Mulvany:{" "}
+              Jake Davis:{" "}
               <a target="_blank" href="https://github.com/">
                 GitHub
               </a>
             </h5>
             <h5 className="footer-links">
-              Elijah Palmer:{" "}
+              Eli Martin:{" "}
               <a target="_blank" href="https://github.com/">
                 GitHub
               </a>
             </h5>
             <h5 className="footer-links">
-              Natan Rincon Luna:{" "}
+              Nathan Torres:{" "}
               <a target="_blank" href="https://github.com/">
                 GitHub
               </a>
@@ -385,13 +385,5 @@ const Content = styled.div`
     font-size: 10px;
   }
 `;
-
-// CREATED BY: ANJALI THING, NATAN RINCON LUNA, ELIJAH PALMER, TREVOR MULVANY
-// TESTED BY: NANCY NUNEZ
-// https://www.linkedin.com/in/anjali-thing/
-// https://www.linkedin.com/in/natan-rincon-luna/
-// https://www.linkedin.com/in/elijah-palmer/
-// https://www.linkedin.com/in/trevor-mulvany/
-// https://www.linkedin.com/in/nancy-nayelit-nunez/
 
 // EMAIL FOR FEEDBACK FORM -----> rapscallionfeedback@gmail.com
