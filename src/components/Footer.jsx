@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
 import Popper from "@mui/material/Popper";
 import Fade from "@mui/material/Fade";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
   breakpoints: {
@@ -31,11 +31,10 @@ const style = {
   border: "3px solid #2b4cb8",
   boxShadow: 3,
   p: 4,
-  [theme.breakpoints.down('mobile')]: {
+  [theme.breakpoints.down("mobile")]: {
     width: 300,
-    height: 300
-    
-  }
+    height: 300,
+  },
 };
 
 function Footer() {
@@ -69,21 +68,21 @@ function Footer() {
           <Content>
             <h3 className="footer-col">Created By</h3>
             <h5 className="footer-links">
-              Anjali Thing:{" "}
+              Dev: Anjali Thing:{" "}
               <a
                 className="footer-links"
                 target="_blank"
-                href="https://www.linkedin.com/in/anjali-thing/"
+                href="https://www.linkedin.com/"
               >
                 Linked In
               </a>
             </h5>
             <h5 className="footer-links">
-              Trevor Mulvany:{" "}
+              Dev: Trevor Mulvany:{" "}
               <a
                 className="footer-links"
                 target="_blank"
-                href="https://www.linkedin.com/in/trevor-mulvany/"
+                href="https://www.linkedin.com/"
               >
                 Linked In
               </a>
@@ -93,17 +92,27 @@ function Footer() {
               <a
                 className="footer-links"
                 target="_blank"
-                href="https://www.linkedin.com/in/elijah-palmer/"
+                href="https://www.linkedin.com/"
               >
                 Linked In
               </a>
             </h5>
             <h5 className="footer-links">
-              Natan Rincon Luna:{" "}
+              Dev: Natan Rincon Luna:{" "}
               <a
                 className="footer-links"
                 target="_blank"
                 href="https://www.linkedin.com/in/natan-rincon-luna/"
+              >
+                Linked In
+              </a>
+            </h5>
+            <h5 className="footer-links">
+              Tester: Nancy Nunez:{" "}
+              <a
+                className="footer-links"
+                target="_blank"
+                href="https://www.linkedin.com/in/nancy-nayelit-nunez/"
               >
                 Linked In
               </a>
@@ -120,8 +129,9 @@ function Footer() {
               sx={{
                 textAlign: "left",
                 lineHeight: "1.25",
-                fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-                }}
+                fontFamily:
+                  "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+              }}
             >
               Let us know how we're doing!
             </Button>
@@ -133,10 +143,10 @@ function Footer() {
                 onClick={handleClick}
                 sx={{
                   textAlign: "left",
-                  marginRight: '2px',
+                  marginRight: "2px",
                   fontFamily:
                     "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-                  }}
+                }}
               >
                 About Us
               </Button>
@@ -161,25 +171,31 @@ function Footer() {
             <h3 className="footer-col">Find Out More</h3>
             <h5 className="footer-links">
               Anjali Thing:{" "}
-              <a target="_blank" href="https://github.com/anjali-th">
+              <a target="_blank" href="https://github.com">
                 GitHub
               </a>
             </h5>
             <h5 className="footer-links">
               Trevor Mulvany:{" "}
-              <a target="_blank" href="https://github.com/waterpolo509">
+              <a target="_blank" href="https://github.com/">
                 GitHub
               </a>
             </h5>
             <h5 className="footer-links">
               Elijah Palmer:{" "}
-              <a target="_blank" href="https://github.com/ElijahMPalmer">
+              <a target="_blank" href="https://github.com/">
                 GitHub
               </a>
             </h5>
             <h5 className="footer-links">
               Natan Rincon Luna:{" "}
-              <a target="_blank" href="https://github.com/natanrinconluna">
+              <a target="_blank" href="https://github.com/">
+                GitHub
+              </a>
+            </h5>
+            <h5 className="footer-links">
+              Nancy Nunez:{" "}
+              <a target="_blank" href="https://github.com/">
                 GitHub
               </a>
             </h5>
@@ -221,13 +237,12 @@ function Footer() {
           </Content>
         </Column>
       </Row>
-      
-      <Content id='footer-inspire'>Inspired by: Monster.com</Content>
+
+      <Content id="footer-inspire">Inspired by: Monster.com</Content>
       <Content>
-        Copyright © 2022, Rapscallion, Inc. "Rapscallion" and logo are
+        Copyright © 2022 - 2023, Rapscallion, Inc. "Rapscallion" and logo are
         registered trademarks of Rapscallion, Inc
       </Content>
-      
 
       {/* Start of Modal */}
       <Modal
@@ -275,10 +290,9 @@ function Footer() {
                 variant="outlined"
                 sx={{
                   width: "375px",
-                  [theme.breakpoints.down('mobile')]: {
-                    width: '240px',
-                    
-                  }
+                  [theme.breakpoints.down("mobile")]: {
+                    width: "240px",
+                  },
                 }}
               />
               <br />
@@ -327,10 +341,10 @@ const Container = styled.div`
   }
 
   @media (max-width: 600px) {
-    h2{
+    h2 {
       font-size: 16px;
     }
-    em{
+    em {
       font-size: 16px;
     }
   }
@@ -372,19 +386,12 @@ const Content = styled.div`
   }
 `;
 
-
 // CREATED BY: ANJALI THING, NATAN RINCON LUNA, ELIJAH PALMER, TREVOR MULVANY
-
+// TESTED BY: NANCY NUNEZ 
 // https://www.linkedin.com/in/anjali-thing/
 // https://www.linkedin.com/in/natan-rincon-luna/
 // https://www.linkedin.com/in/elijah-palmer/
 // https://www.linkedin.com/in/trevor-mulvany/
-
-// https://github.com/anjali-th
-// https://github.com/ElijahMPalmer
-// https://github.com/waterpolo509
-// https://github.com/natanrinconluna
+// https://www.linkedin.com/in/nancy-nayelit-nunez/
 
 // EMAIL FOR FEEDBACK FORM -----> rapscallionfeedback@gmail.com
-
-
